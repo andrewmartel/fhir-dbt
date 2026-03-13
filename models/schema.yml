@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_patient
+    description: "Flattened FHIR Patient resources with key demographic fields."
+    columns:
+      - name: patient_id
+        tests: [not_null, unique]
+
+  - name: stg_immunization
+    description: "Flattened FHIR Immunization resources with CVX codes and vaccine display names."
+    columns:
+      - name: immunization_id
+        tests: [not_null, unique]
+
+  - name: stg_observation
+    description: "Flattened FHIR Observation resources with convenience fields for category and code."
+    columns:
+      - name: observation_id
+        tests: [not_null, unique]
+
+  - name: stg_diagnostic_report
+    description: "Flattened FHIR DiagnosticReport resources with effective date."
+    columns:
+      - name: diagnostic_report_id
+        tests: [not_null, unique]
+
+  - name: mart_immunization_stats
+    description: "Answers immunization questions: number of patients with influenza vaccine and top 5 vaccines."
+
+  - name: mart_vital_signs_per_patient
+    description: "Provides the average number of vital sign observations per patient."
+
+  - name: mart_recent_cholesterol_report_per_patient
+    description: "Most recent diagnostic report date that coincides with a cholesterol-related lab per patient."
+
+  - name: mart_patient_profile
+    description: "Convenient per-patient rollup of key metrics for exploratory analysis."
+

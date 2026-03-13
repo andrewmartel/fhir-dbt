@@ -1,0 +1,14 @@
+# Use from project root: set DBT_PROFILES_DIR=. when running dbt
+# Password comes from env: set DBT_PASSWORD (run_everything.py sets it from .env PGPASSWORD)
+fhir_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: postgres
+      password: "{{ env_var('DBT_PASSWORD', '') }}"
+      dbname: fhir
+      schema: public
+      threads: 4

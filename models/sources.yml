@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw FHIR tables loaded by load_fhir_to_postgres.py (public schema)"
+    schema: public
+    tables:
+      - name: patient
+        identifier: raw_patient
+      - name: immunization
+        identifier: raw_immunization
+      - name: observation
+        identifier: raw_observation
+      - name: diagnostic_report
+        identifier: raw_diagnostic_report

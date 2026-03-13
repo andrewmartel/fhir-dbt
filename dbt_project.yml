@@ -1,0 +1,23 @@
+name: "fhir_dbt"
+version: "1.0.0"
+config-version: 2
+
+profile: "fhir_dbt"
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+models:
+  fhir_dbt:
+    +materialized: view
+    raw:
+      +schema: raw_fhir
+    staging:
+      +schema: stg_fhir
+    marts:
+      +schema: fhir_marts
+
