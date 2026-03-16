@@ -204,13 +204,3 @@ I used an AI coding assistant (Cursor / GPT‑based) to:
 
 All SQL, Python, and modeling decisions have been reviewed and understood by me,
 and I’m prepared to walk through them in a live session.
-
-## 7. If you previously committed a password
-
-If `profiles.yml` (or any file) with a real password was already pushed to a remote, the password remains in git history. To remove it:
-
-1. **Option A — Rewrite history (use if the repo is shared):** Use [git filter-repo](https://github.com/newren/git-filter-repo) or BFG Repo-Cleaner to replace the password in all commits, then force-push. Anyone who cloned the repo should re-clone.
-2. **Option B — If you haven’t shared the repo yet:** Amend the commit that added the password and force-push:  
-   `git commit --amend --no-edit` (after staging the fixed `profiles.yml`), then `git push --force`.
-3. **Rotate the password** on your Postgres server so the old value is no longer valid.
-
